@@ -1,124 +1,56 @@
-:root{
-    --bg:#0f1724;
-    --card:#0b1220;
-    --accent:#7c3aed;
-    --accent-2:#06b6d4;
-    --muted:#94a3b8;
-    --btn:#111827;
-    --btn-operator:#1f2937;
-    --glass: rgba(255,255,255,0.04);
-    --radius:12px;
-    --shadow: 0 8px 30px rgba(2,6,23,0.6);
-    --gap:10px;
-    --btn-size:68px;
-}
-
-*{box-sizing:border-box}
-html,body{
-    height:100%;
+*{
+    box-sizing: border-box;
     margin:0;
-    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: linear-gradient(180deg, #071028 0%, #071827 60%);
-    color:#e6eef8;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
 }
-
-#calculator{
-    width: min(420px, 94%);
-    margin: 6vh auto;
-    padding: 18px;
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(255,255,255,0.03);
-    backdrop-filter: blur(6px);
+button{
+    width:50px;
+    height:50px;
+    border-radius: 50px;
+    border:none;
+    background-color: hsla(33, 16%, 56%, 0.726);
+    color:white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin:2px
 }
-
-/* Display */
-#display{
-    width:100%;
-    height:72px;
-    font-size:28px;
-    text-align:right;
-    padding: 14px 18px;
-    border-radius:10px;
-    border: none;
-    outline: none;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    color:var(--accent-2);
-    box-shadow: inset 0 -4px 18px rgba(2,6,23,0.6);
-    margin-bottom:16px;
+#Calculator{
+    text-align: center;
+    width:300px;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    overflow: hidden;
 }
-
-/* Buttons grid */
-#buttons{
+#keys{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--gap);
+    gap:8px;
+    padding:25px;
 }
-
-button{
-    appearance:none;
-    -webkit-appearance:none;
-    border: none;
-    background: var(--btn);
-    color: #e6eef8;
-    height: var(--btn-size);
-    font-size:20px;
-    border-radius:10px;
-    cursor:pointer;
-    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
-    box-shadow: 0 6px 14px rgba(2,6,23,0.6);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    user-select:none;
+#display{
+    padding:20px;
+    border:2px solid black;
+    font-size: 2rem;
+    text-align: left;
+    background-color: grey;
+    color:white
 }
-
-/* Special sizes */
-button:active{ transform: translateY(2px) scale(0.995); }
-button:hover{ transform: translateY(-3px); box-shadow: 0 10px 22px rgba(2,6,23,0.7); }
-
-/* Operator and clear buttons */
-.operator-btn{
-    background: linear-gradient(180deg, rgba(124,58,237,0.14), rgba(124,58,237,0.06));
-    color: var(--accent);
-    font-weight:600;
-    border: 1px solid rgba(124,58,237,0.12);
+button:hover{
+    background-color: hsla(33, 16%, 70%, 0.726);
 }
-
-/* Equal button style */
-#buttons > button:nth-last-child(3){
-    background: linear-gradient(180deg, var(--accent), #5b21b6);
-    color: white;
-    font-weight:700;
-    font-size:22px;
-    box-shadow: 0 8px 26px rgba(107,33,168,0.45);
-    border: none;
+button:active{
+    background-color: hsla(33, 16%, 96%, 0.726);
 }
-
-/* Wide zero button */
-#buttons > button:first-child{
-    /* left-most button is + in your layout; keep default */
+.operatorbtn{
+    background-color: hwb(39 0% 20%);
 }
-
-/* Make '.' and '0' fit well on smaller screens */
-@media (max-width:420px){
-    :root{ --btn-size:60px; }
-    #display{ height:64px; font-size:24px; padding:12px; }
+.operatorbtn:hover{
+    background-color: hwb(39 0% 10%);
 }
-
-/* Focus states for accessibility */
-button:focus{
-    outline: 3px solid rgba(6,182,212,0.14);
-    outline-offset: 2px;
-}
-
-/* Subtle label under calculator */
-#calculator small{
-    display:block;
-    margin-top:10px;
-    color:var(--muted);
-    text-align:center;
+.operatorbtn:active{
+    background-color: hwb(39 0% 0%);
 }
